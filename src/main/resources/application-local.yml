@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: local
+  resources:
+    chain:
+      cache: false
+fido2:
+  rp:
+    id: localhost
+    origin: localhost
+    port: 8080
+    ssl:
+      key-store: classpath:keystore/fido_cert.p12 # path inside docker container
+      key-store-type: PKCS12 # keystore type
+      key-alias: fido # keystore alias
+      key-store-password: fido@123
+
+conformance:
+  url: https://localhost:8080
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: DEBUG
+    com.linecorp.line: DEBUG
+
